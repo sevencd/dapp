@@ -23,4 +23,5 @@ public class RedisKeysConstant {
      * 版本
      */
     public final static String STOCK_VERSION = "stock_version_";
+    public static final String STOCK_NAME ="stock_name_";
 }

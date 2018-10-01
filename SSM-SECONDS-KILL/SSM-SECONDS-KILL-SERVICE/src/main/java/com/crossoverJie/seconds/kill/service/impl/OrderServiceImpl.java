@@ -1,25 +1,21 @@
 package com.crossoverJie.seconds.kill.service.impl;
 
-import com.alibaba.druid.sql.visitor.functions.Concat;
 import com.crossoverJie.seconds.kill.api.constant.RedisKeysConstant;
 import com.crossoverJie.seconds.kill.dao.StockOrderMapper;
 import com.crossoverJie.seconds.kill.pojo.Stock;
 import com.crossoverJie.seconds.kill.pojo.StockOrder;
 import com.crossoverJie.seconds.kill.service.OrderService;
-import com.crossoverJie.seconds.kill.service.StockService;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
-import java.util.Date;
 
 /**
  * Function:
@@ -113,12 +109,14 @@ public class OrderServiceImpl implements OrderService {
             throw new RuntimeException("库存不足 Redis currentCount=" + sale);
         }
         Integer version = Integer.parseInt(redisTemplate.opsForValue().get(RedisKeysConstant.STOCK_VERSION + sid));
+        String name = redisTemplate.opsForValue().get(RedisKeysConstant.STOCK_NAME + sid);
+
         Stock stock = new Stock() ;
         stock.setId(sid);
         stock.setCount(count);
         stock.setSale(sale);
         stock.setVersion(version);
-
+        stock.setName(name);
         return stock;
     }
 

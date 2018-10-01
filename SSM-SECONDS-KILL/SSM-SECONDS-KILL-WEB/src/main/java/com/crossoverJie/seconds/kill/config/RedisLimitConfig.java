@@ -16,6 +16,8 @@ import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisCluster;
 
+import javax.annotation.PostConstruct;
+
 /**
  * Function:
  *
@@ -43,4 +45,6 @@ public class RedisLimitConfig {
 
         return redisLimit;
     }
+
+
 }

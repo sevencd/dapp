@@ -69,7 +69,7 @@ public class RedisController {
         CommonUtil.responseBuildJson(response, jsonObject);
     }
 
-    @CheckReqNo
+    //@CheckReqNo
     @RequestMapping(value = "/createRedisContent",method = RequestMethod.POST)
     @ResponseBody
     public BaseResponse<NULLBody> createRedisContent(@RequestBody RedisContentReq redisContentReq){
