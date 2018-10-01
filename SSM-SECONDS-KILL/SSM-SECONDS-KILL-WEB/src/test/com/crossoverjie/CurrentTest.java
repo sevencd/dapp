@@ -16,7 +16,7 @@ public class CurrentTest {
 
     private static Logger logger = LoggerFactory.getLogger(CurrentTest.class);
     private static ExecutorService executorServicePool;
-    private static String url="http://127.0.0.1:8083/SSM-SECONDS-KILL-WEB-2.2.0-SNAPSHOT/createOptimisticLimitOrder/1" ;
+    private static String url="http://127.0.0.1:8081/SSM-SECONDS-KILL-WEB/createOptimisticLimitOrder/1" ;
 
 
     public static void main(String[] args) throws InterruptedException {
